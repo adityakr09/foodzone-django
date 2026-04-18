@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+    .cart-container {
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .cart-card {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        padding: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        transition: transform 0.2s ease;
+    }
+
+    .cart-card:hover {
+        transform: scale(1.01);
+    }
+
+    .cart-card img {
+        width: 130px;
+        height: 130px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    .item-details {
+        flex: 1;
+    }
+
+    .item-details h4 {
+        margin: 0;
+        font-weight: 600;
+    }
+
+    .price {
+        font-size: 18px;
+        font-weight: bold;
+        color: #198754;
+    }
+
+    .quantity-control {
+        display: flex;
+        align-items: center;
+        background: #f8f9fa;
+        border-radius: 30px;
+        padding: 6px 12px;
+        gap: 12px;
+    }
+
+    .qty-btn {
+        background: #198754;
+        color: #fff;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 32px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .qty-btn:hover {
+        background: #146c43;
+    }
+
+    .action-icons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .icon-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    .edit-btn {
+        background: #e7f1ff;
+        color: #0d6efd;
+    }
+
+    .delete-btn {
+        background: #fdecea;
+        color: #dc3545;
+    }
+
+    .cart-summary {
+        background: #fff;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        border-radius: 12px;
+        padding: 20px;
+        position: sticky;
+        bottom: 20px;
+        margin-top: 30px;
+    }
+
+    .checkout-btn {
+        width: 100%;
+        padding: 12px;
+        border-radius: 30px;
+        font-size: 18px;
+    }
+
+    .empty-cart {
+        text-align: center;
+        padding: 60px;
+        color: #777;
+    }
+</style>
+
+<div class="cart-container mt-4">
+    <h2 class="mb-4 fw-bold">🛒 Your Cart</h2>
+
+    {% for item in cart_items %}
+    <div class="cart-card">
+
+{% if item.foodimg %}
+    <img src="{{ item.foodimg.url }}" alt="{{ item.name }}">
+{% else %}
+    <img src="https://via.placeholder.com/120x90?text=No+Image" alt="No image">
+{% endif %}
+
+
+        <div class="item-details">
+            <h4>{{ item.name }}</h4>
+            <p class="text-muted">{{ item.description|truncatechars:70 }}</p>
+            <div class="price">₹{{ item.price }}</div>
+        </div>
+
+        <div class="quantity-control">
+            <a href="{% url 'foodsapp:decrease_qty' item.id %}" class="qty-btn">−</a>
+            <span>{{ item.quantity }}</span>
+            <a href="{% url 'foodsapp:increase_qty' item.id %}" class="qty-btn">+</a>
+        </div>
+
+        <div class="action-icons">
+            <a href="#" class="icon-btn edit-btn" title="Customize">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+
+            <a href="{% url 'foodsapp:remove_cart' item.id %}"
+               class="icon-btn delete-btn"
+               title="Remove">
+                <i class="fa-solid fa-trash"></i>
+            </a>
+        </div>
+
+    </div>
+    {% empty %}
+    <div class="empty-cart">
+        <h3>Your cart is empty 😔</h3>
+        <p>Add some delicious food!</p>
+    </div>
+    {% endfor %}
+
+    {% if cart_items %}
+    <div class="cart-summary">
+        <div class="d-flex justify-content-between mb-3">
+            <h4>Total</h4>
+            <h4>₹{{ total_price }}</h4>
+        </div>
+   <form method="post" action="{% url 'foodsapp:make-order' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success">
+        Make Order
+    </button>
+</form>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

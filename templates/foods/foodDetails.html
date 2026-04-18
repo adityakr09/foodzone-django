@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <div class="jumbotron">
+
+        <h2>{{ fooditem.name }}</h2>
+
+        {% if fooditem.food_image %}
+            <img src="{{ fooditem.food_image.url }}" alt="{{ fooditem.name }}" width="200">
+        {% else %}
+            <p>No image available</p>
+        {% endif %}
+
+        <br><br>
+
+        <strong>Price:</strong> {{ fooditem.price }} <br>
+        <strong>Rating:</strong> {{ fooditem.rating }} <br>
+        <strong>Description:</strong> {{ fooditem.description }}
+
+        <br><br>
+
+        <button class="btn btn-primary">🛒 Add to Cart</button>
+        <button class="btn btn-secondary">✏️ Customize</button>
+
+    </div>
+</div>
+
+{% endblock %}

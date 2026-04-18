@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+img {
+     height: 300px;
+    width: 100%;
+    object-fit: contain;
+    padding: 20px;           
+}
+.category-bar {
+    display: inline-flex; 
+    gap: 10px;
+    flex-wrap: wrap;
+    width: fit-content; 
+}
+</style>
+
+<div class="container mt-4">
+    <!-- Add food Button -->
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3>All Foods</h3>
+
+        {% if request.user.is_authenticated and request.user.userdetails.user_type == "VENDOR" %}
+            <a href="{% url 'addfood' %}" class="btn btn-primary btn-sm">
+                Add Food <i class="bi bi-plus-circle"></i>
+            </a>
+        {% endif %}
+    </div>
+
+
+    <!-- Category Buttons -->
+    <div class="category-bar mb-4">
+        <a href="{% url 'allfoods' %}"
+           class="btn btn-sm {% if not selected_category %}btn-dark{% else %}btn-outline-dark{% endif %}">
+            All
+        </a>
+
+        {% for value, name in categories %}
+            <a href="?catogery={{ value }}"
+               class="btn btn-sm {% if selected_category == value %}btn-dark{% else %}btn-outline-dark{% endif %}">
+                {{ name }}
+            </a>
+        {% endfor %}
+    </div>
+
+    <!-- Food Cards -->
+    <div class="row">
+        {% for i in allfooditem %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+
+                {% if i.foodimg %}
+                    <a href="/{{ i.id }}"><img src="{{ i.foodimg.url }}" class="card-img-top" alt="{{ i.name }}"></a>
+                {% endif %}
+
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="/{{ i.id }}" style="text-decoration:none; color:black;">
+                         {{ i.name }}
+                        </a>
+                        </h5>
+                    <p class="text-muted">Rs. {{ i.price }}</p>
+                    <span class="badge bg-success">⭐ {{ i.rating }}</span>
+                    <p class="mt-2">{{ i.description }}</p>
+                </div>
+
+            </div>
+        </div>
+        {% empty %}
+            <p>No Food Items Found</p>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

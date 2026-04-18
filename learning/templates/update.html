@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm">
+                
+                <!-- Header -->
+                <div class="card-header bg-warning text-white">
+                    <h3 class="mb-0 fw-semibold">
+                        <i class="bi bi-person-lines-fill"></i> Update Profile
+                    </h3>
+                </div>
+
+                <!-- Body -->
+                <div class="card-body p-4">
+                    <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        {% csrf_token %}
+
+                        <!-- Render all fields in one column -->
+                        <div class="mb-3">
+                            {{ form.as_p }}
+                            {{ form1.as_p }}
+                        </div>
+
+                        <!-- Submit button -->
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary px-4">
+                                <i class="bi bi-save"></i> Update Profile
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

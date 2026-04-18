@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="jumbotron p-4">
+    
+        <div class="mb-4 text-center">
+
+    <a href="{% url 'allfoods' %}" class="btn btn-outline-dark btn-sm m-1">
+        All
+    </a>
+
+    <a href="{% url 'allfoods' %}?category=PIZZA" class="btn btn-outline-primary btn-sm m-1">Pizza</a>
+    <a href="{% url 'allfoods' %}?category=BURGER" class="btn btn-outline-primary btn-sm m-1">Burger</a>
+    <a href="{% url 'allfoods' %}?category=FRENCH FRIES" class="btn btn-outline-primary btn-sm m-1">French Fries</a>
+    <a href="{% url 'allfoods' %}?category=DESERT" class="btn btn-outline-primary btn-sm m-1">Dessert</a>
+    <a href="{% url 'allfoods' %}?category=BREVERAGES" class="btn btn-outline-primary btn-sm m-1">Beverages</a>
+    <a href="{% url 'allfoods' %}?category=BIRYANI" class="btn btn-outline-primary btn-sm m-1">Biryani</a>
+</div>
+
+        {% for i in allfooditem %}
+        <div class="card mb-3 shadow-sm">
+            <div class="row no-gutters align-items-center">
+
+                <!-- Image -->
+                <div class="col-md-3 text-center p-2">
+                    {% if i.food_image %}
+                        <img src="{{ i.food_image.url }}" class="img-fluid rounded" style="max-height:150px;">
+                    {% else %}
+                        <p>No image</p>
+                    {% endif %}
+                </div>
+
+                <!-- Details -->
+                <div class="col-md-9">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                        <a href="/{{ i.id }}" style="text-decoration:none; color:black;">
+                         {{ i.name }}
+                        </a>
+                        </h5>
+
+                        <p class="card-text mb-1">💰 Price: {{ i.price }}</p>
+                        <p class="card-text mb-1">⭐ Rating: {{ i.rating }}</p>
+                        <p class="card-text text-muted">{{ i.description }}</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    <div class="d-flex justify-content-end mb-3">
+         <a href="{% url 'addfood' %}" class="btn btn-success">
+         ➕ Add Food
+         </a>
+    </div>
+
+
+    </div>
+</div>
+{% endblock %}

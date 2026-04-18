@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-5 d-flex justify-content-center">
+
+    <div class="card shadow-lg border-0 rounded-4 p-4" style="max-width: 500px; width:100%;">
+
+        <!-- Success Icon -->
+        <div class="text-center mb-3">
+            <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center"
+                 style="width:80px; height:80px; font-size:35px;">
+                <i class="fa-solid fa-check"></i>
+            </div>
+        </div>
+
+        <!-- Success Message -->
+        <h3 class="text-center text-success fw-bold">
+            You Made An Order 🎉
+        </h3>
+
+        <p class="text-center text-muted mb-4">
+            Thank you for your order, {{ request.user.username }}
+        </p>
+
+        <!-- Order Details Box -->
+        <div class="bg-light rounded-4 p-3 mb-3">
+
+            <div class="d-flex justify-content-between mb-2">
+                <span class="text-muted">Order ID</span>
+                <span class="fw-bold">{{ order.order_id }}</span>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <span class="text-muted">Order Time</span>
+                <span class="fw-semibold">
+                    {{ order.created_at|date:"d M Y, h:i A" }}
+                </span>
+            </div>
+
+        </div>
+
+        <!-- Items List -->
+        <h5 class="fw-bold mb-3">Order Details</h5>
+
+        <div class="border rounded-3 p-3 mb-3" style="max-height:200px; overflow-y:auto;">
+
+            {% for item in order.items.all %}
+            <div class="d-flex justify-content-between mb-2">
+                <span>
+                    {{ item.food_name }}
+                    <small class="text-muted"> × {{ item.quantity }}</small>
+                </span>
+
+                <span class="fw-semibold">
+                    ₹{{ item.price }}
+                </span>
+            </div>
+            {% empty %}
+            <p class="text-muted text-center">No Items</p>
+            {% endfor %}
+
+        </div>
+
+        <!-- Total -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h5 class="mb-0">Total</h5>
+            <h4 class="text-success fw-bold">
+                ₹{{ order.total_price }}
+            </h4>
+        </div>
+
+        <!-- Buttons -->
+        <div class="d-grid gap-2">
+
+            <a href="{% url 'foodsapp:proceed_payment' order.order_id %}"
+            class="btn btn-primary btn-lg rounded-pill">
+            Proceed To Payment </a>
+
+            <a href="{% url 'home' %}"
+               class="btn btn-outline-dark rounded-pill">
+               Back To Home </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

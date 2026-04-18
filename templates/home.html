@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-4">
+
+    <!-- Header -->
+    <div class="text-center mb-4">
+        <h1 class="fw-bold">People who love to eat are always the best people</h1>
+        <p class="text-muted">Fresh • Tasty • Loved by All</p>
+    </div>
+
+    <!-- Section Title -->
+    <h4 class="mb-3 border-bottom pb-2">⭐ Top Rated Foods</h4>
+
+    <!-- Food Cards -->
+    <div class="row">
+        {% for i in allfoods %}
+            {% if i.rating >= 4 %}
+                <div class="col-md-3 col-sm-4 col-6 mb-4">
+                    <div class="card h-100 shadow-sm text-center">
+
+                        {% if i.food_image %}
+                            <img src="{{ i.food_image.url }}"
+                                 class="card-img-top"
+                                 style="height:180px; object-fit:cover;"
+                                 alt="no img">
+                        {% else %}
+                            <img src="{% static 'images/defaultfood.png' %}"
+                                 class="card-img-top"
+                                 style="height:180px; object-fit:cover;"
+                                 alt="no img">
+                        {% endif %}
+
+                        <div class="card-body p-2">
+                            <h6 class="mb-0">{{ i.name }}</h6>
+                        </div>
+
+                    </div>
+                    <a href="{{ i.id }}">View Details</a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

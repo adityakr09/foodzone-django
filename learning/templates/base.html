@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Food App</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+.custom-navbar{
+    background: linear-gradient(135deg,#ffffff,#f3f7ff);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    padding: 14px 0;
+}
+
+
+.nav-link{
+    font-weight: 500;
+    color: #333 !important;
+    transition: all .3s ease;
+}
+
+.nav-link:hover{
+    color: #0d6efd !important;
+    transform: translateY(-2px);
+}
+.cart-btn{
+    width: 48px;
+    height: 48px;
+    background: white;
+    border-radius: 50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow: 0 6px 18px rgba(13,110,253,0.25);
+    position: relative;
+    transition: all .3s ease;
+}
+.cart-btn:hover{
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(13,110,253,0.35);
+}
+.cart-btn i{
+    font-size: 22px;
+    color:#0d6efd;
+}
+
+.cart-badge{
+    position:absolute;
+    top:-6px;
+    right:-6px;
+    background: linear-gradient(45deg,#ff3d3d,#ff7b7b);
+    color:white;
+    font-size:12px;
+    padding:4px 7px;
+    border-radius:50%;
+    font-weight:600;
+    box-shadow:0 3px 10px rgba(255,0,0,0.4);
+}
+
+</style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg custom-navbar">
+<div class="container">
+    <div class="d-flex gap-3 align-items-center">
+        {% if user.is_authenticated %}
+        <a class="nav-link" href="{% url 'home' %}">Home</a>
+        <a class="nav-link" href="{% url 'profile'%}">Profile</a>
+        <a class="nav-link" href="{% url 'allfoods'%}">All Food</a>
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <a class="nav-link" href="{% url 'login' %}">Login</a>
+        <a class="nav-link" href="{% url 'register' %}">Register</a>
+        {% endif %}
+    </div>
+
+    {% if user.is_authenticated %}
+    <div class="ms-auto">
+
+        <a href="{% url 'foodsapp:cart' %}" class="cart-btn">
+            <i class="fa-solid fa-cart-shopping"></i>
+            {% if cart_count > 0 %}
+            <span class="cart-badge">
+                {{ cart_count }}
+            </span>
+            {% endif %}
+        </a>
+    </div>
+    {% endif %}
+
+</div>
+</nav>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

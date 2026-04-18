@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Environment variables - NEVER push this
+.env
+
+# Django database
+db.sqlite3
+
+# Media files (user uploads)
+media/
+userimg/
+
+# Virtual environment
+venv/
+env/

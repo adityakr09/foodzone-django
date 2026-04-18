@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial; }
+        .box {
+            border: 1px solid #ddd;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+        h2 { color: green; }
+    </style>
+</head>
+<body>
+   <h2>Food Order Invoice</h2>
+
+<p>Hello {{ user.username }},</p>
+
+<p>Your order has been confirmed successfully 🎉</p>
+
+<hr>
+
+<p><strong>Order ID:</strong> {{ order.order_id }}</p>
+<p><strong>Total Price:</strong> ₹{{ order.total_price }}</p>
+<p><strong>Delivery Address:</strong> {{ address }}</p>
+
+<hr>
+
+<h3>Items:</h3>
+
+<ul>
+{% for item in order_items %}
+    <li>
+        {{ item.food_name }} × {{ item.quantity }} — ₹{{ item.price }}
+    </li>
+{% endfor %}
+</ul>
+
+<br>
+<p>Thank you for ordering ❤️</p>
+
+</body>
+</html>
