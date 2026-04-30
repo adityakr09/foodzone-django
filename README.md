@@ -1,91 +1,100 @@
-# 🍕 FoodZone — Full-Stack Food Ordering Web App
+<div align="center">
 
-A production-ready food ordering platform built with **Python & Django**, featuring user authentication, food customization (size, base, toppings, sauces), cart management, order tracking, and automated email invoices.
+<img src="./header.svg" width="100%"/>
 
----
+<br/>
 
-## 🚀 Live Demo
-> _Add your deployed link here (Railway / Render / PythonAnywhere)_
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Coming_Soon-f97316?style=for-the-badge)](https://github.com/adityakr09)
+[![GitHub](https://img.shields.io/badge/GitHub-adityakr09-181717?style=for-the-badge&logo=github)](https://github.com/adityakr09)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Aditya_Kumar-0A66C2?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/aditya-kumar-O1)
 
----
+<br/>
 
-## 📸 Screenshots
+![Python](https://img.shields.io/badge/Python_3.x-3776AB?style=flat-square&logo=python&logoColor=white)
+![Django](https://img.shields.io/badge/Django_6.0-092E20?style=flat-square&logo=django&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap_5-7952B3?style=flat-square&logo=bootstrap&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-07405E?style=flat-square&logo=sqlite&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 
-> _Add screenshots of your home page, food detail, cart, and order success pages here_
+<br/>
+
+> **Built by — [Aditya Kumar](https://github.com/adityakr09)**
+
+</div>
 
 ---
 
 ## ✨ Features
 
-- 🔐 **User Authentication** — Register, Login, Logout with session-based security & Google reCAPTCHA
-- 👤 **User Profiles** — Profile picture upload, address management, User/Vendor roles
-- 🍔 **Food Catalogue** — Browse items by category (Pizza, Burger, Biryani, Beverages, Desserts, French Fries)
-- ⚙️ **Food Customization** — Choose size, base, toppings, and sauces with dynamic pricing
-- 🛒 **Cart System** — Add, update quantity, and remove items
-- 📦 **Order Management** — Place orders with UUID-based order IDs and status tracking (Pending → Confirmed → Delivered)
-- 📧 **Email Invoices** — Automated bill/invoice sent to user email on order placement via SMTP
-- 🧑‍💼 **Vendor Panel** — Vendors can add and manage food items
-- 🔒 **Secure Password Hashing** — PBKDF2, Argon2, BCrypt support
+<table>
+  <tr>
+    <td>🔐 <b>User Authentication</b></td>
+    <td>Register, Login, Logout with session-based security & Google reCAPTCHA</td>
+  </tr>
+  <tr>
+    <td>👤 <b>User Profiles</b></td>
+    <td>Profile picture upload, address management, User/Vendor roles</td>
+  </tr>
+  <tr>
+    <td>🍔 <b>Food Catalogue</b></td>
+    <td>Browse by category — Pizza, Burger, Biryani, Beverages, Desserts, French Fries</td>
+  </tr>
+  <tr>
+    <td>⚙️ <b>Food Customization</b></td>
+    <td>Choose size, base, toppings & sauces with dynamic pricing</td>
+  </tr>
+  <tr>
+    <td>🛒 <b>Cart System</b></td>
+    <td>Add, update quantity, and remove items</td>
+  </tr>
+  <tr>
+    <td>📦 <b>Order Management</b></td>
+    <td>UUID-based order IDs, status tracking — Pending → Confirmed → Delivered</td>
+  </tr>
+  <tr>
+    <td>📧 <b>Email Invoices</b></td>
+    <td>Automated bill sent to user email on order placement via SMTP</td>
+  </tr>
+  <tr>
+    <td>🧑‍💼 <b>Vendor Panel</b></td>
+    <td>Vendors can add and manage their food items</td>
+  </tr>
+</table>
 
 ---
 
 ## 🛠️ Tech Stack
 
 | Layer | Technology |
-|---|---|
-| Language | Python 3.x |
-| Framework | Django 6.0 |
-| Database | SQLite3 (dev) / PostgreSQL (prod) |
-| Frontend | HTML5, CSS3, Bootstrap 5 |
-| Forms | Django Crispy Forms |
-| Auth | Django Auth + reCAPTCHA |
-| Email | SMTP (Gmail) |
-| Container | Docker |
-| Media | Django Media Files |
+|-------|-----------|
+| **Language** | Python 3.x |
+| **Framework** | Django 6.0 |
+| **Database** | SQLite3 (dev) / PostgreSQL (prod) |
+| **Frontend** | HTML5, CSS3, Bootstrap 5 |
+| **Forms** | Django Crispy Forms |
+| **Auth** | Django Auth + Google reCAPTCHA |
+| **Email** | SMTP (Gmail) |
+| **Container** | Docker |
 
 ---
 
-## 📁 Project Structure
+## 🚀 Getting Started
 
-```
-learning/                   # Django project root
-├── learning/               # Project settings & URLs
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── learningapp/            # User auth & profile app
-│   ├── models.py           # UserDetails model
-│   ├── views.py
-│   ├── forms.py
-│   └── urls.py
-├── foodsapp/               # Core food ordering app
-│   ├── models.py           # FoodItems, Cart, Order, Customization models
-│   ├── views.py
-│   ├── urls.py
-│   └── utils.py            # Email invoice utility
-├── templates/              # HTML templates
-│   ├── base.html
-│   ├── home.html
-│   ├── cart.html
-│   ├── foods/
-│   └── emails/
-├── static/                 # CSS, JS, images
-├── media/                  # User & food uploaded images
-├── manage.py
-└── requirements.txt
-```
+### Prerequisites
+- Python 3.x
+- pip
+- Git
 
----
+### 1️⃣ Clone the repo
 
-## ⚙️ Local Setup (Without Docker)
-
-### 1. Clone the repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/foodzone-django.git
+git clone https://github.com/adityakr09/foodzone-django.git
 cd foodzone-django
 ```
 
-### 2. Create and activate virtual environment
+### 2️⃣ Create virtual environment
+
 ```bash
 python -m venv venv
 
@@ -96,20 +105,20 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-### 3. Install dependencies
+### 3️⃣ Install dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Configure environment variables
+### 4️⃣ Configure environment variables
 
-Create a `.env` file in the project root (copy from `.env.example`):
 ```bash
 cp .env.example .env
+# Edit .env with your values
 ```
 
-Edit `.env` with your values:
-```
+```env
 SECRET_KEY=your-secret-key-here
 DEBUG=True
 EMAIL_HOST_USER=your-email@gmail.com
@@ -118,88 +127,137 @@ RECAPTCHA_PUBLIC_KEY=your-recaptcha-public-key
 RECAPTCHA_PRIVATE_KEY=your-recaptcha-private-key
 ```
 
-### 5. Run migrations
+### 5️⃣ Run migrations & start server
+
 ```bash
 cd learning
 python manage.py migrate
-```
-
-### 6. Create superuser (admin)
-```bash
 python manage.py createsuperuser
-```
-
-### 7. Run the development server
-```bash
 python manage.py runserver
 ```
 
-Visit: **http://127.0.0.1:8000**
+> 🟢 Visit: `http://127.0.0.1:8000`
 
 ---
 
-## 🐳 Local Setup (With Docker)
+## 🐳 Docker Setup
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/foodzone-django.git
+git clone https://github.com/adityakr09/foodzone-django.git
 cd foodzone-django
 
-# Build and run
 docker build -t foodzone .
 docker run -p 8000:8000 foodzone
 ```
 
-Visit: **http://localhost:8000**
+> 🟢 Visit: `http://localhost:8000`
 
 ---
 
 ## 🔑 Environment Variables
 
 | Variable | Description |
-|---|---|
+|----------|-------------|
 | `SECRET_KEY` | Django secret key |
-| `DEBUG` | True for development, False for production |
+| `DEBUG` | `True` for dev, `False` for prod |
 | `EMAIL_HOST_USER` | Gmail address for sending invoices |
-| `EMAIL_HOST_PASSWORD` | Gmail App Password (not your login password) |
+| `EMAIL_HOST_PASSWORD` | Gmail App Password (not login password) |
 | `RECAPTCHA_PUBLIC_KEY` | Google reCAPTCHA v2 site key |
 | `RECAPTCHA_PRIVATE_KEY` | Google reCAPTCHA v2 secret key |
 
-> ⚠️ Never commit your real `.env` file. It is listed in `.gitignore`.
+> [!WARNING]
+> Never commit your real `.env` file — it is listed in `.gitignore`.
 
 ---
 
 ## 📊 Database Models
 
-- **UserDetails** — Extended user profile (phone, address, city, user type)
-- **FoodItems** — Food catalogue with category, price, rating, image
-- **CustomizedOption** — Size / Base / Topping / Sauce options with pricing
-- **Customization + CustomizationItem** — Stores user's customization choices
-- **Cart** — Temporary cart items per session
-- **Order + OrderItem** — Placed orders with UUID, status, and line items
+<details>
+<summary><b>👤 UserDetails</b></summary>
+<br/>
+Extended user profile — phone, address, city, user type (User/Vendor)
+</details>
+
+<details>
+<summary><b>🍔 FoodItems</b></summary>
+<br/>
+Food catalogue with category, price, rating, and image
+</details>
+
+<details>
+<summary><b>⚙️ CustomizedOption + Customization</b></summary>
+<br/>
+Size / Base / Topping / Sauce options with pricing — stores user's customization choices per order
+</details>
+
+<details>
+<summary><b>🛒 Cart</b></summary>
+<br/>
+Temporary cart items per user session
+</details>
+
+<details>
+<summary><b>📦 Order + OrderItem</b></summary>
+<br/>
+Placed orders with UUID, status tracking, and line items
+</details>
+
+---
+
+## 📁 Project Structure
+
+```
+learning/
+├── learning/               # Project settings & URLs
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── learningapp/            # User auth & profile app
+│   ├── models.py           # UserDetails model
+│   ├── views.py
+│   ├── forms.py
+│   └── urls.py
+├── foodsapp/               # Core food ordering app
+│   ├── models.py           # FoodItems, Cart, Order, Customization
+│   ├── views.py
+│   ├── urls.py
+│   └── utils.py            # Email invoice utility
+├── templates/
+│   ├── base.html
+│   ├── home.html
+│   ├── cart.html
+│   ├── foods/
+│   └── emails/             # Invoice email template
+├── static/                 # CSS, JS, images
+├── media/                  # User & food uploaded images
+├── manage.py
+└── requirements.txt
+```
 
 ---
 
 ## 📧 Email Invoice
 
-On successful order placement, the system automatically emails a bill/invoice to the registered user using Django's SMTP backend with Gmail. Template located at `templates/emails/bill_invoice_template.html`.
+On successful order placement, the system automatically emails a bill/invoice to the registered user via Django's SMTP backend with Gmail.
+
+> Template: `templates/emails/bill_invoice_template.html`
 
 ---
 
-## 🤝 Contributing
+## 📝 Notes
 
-Pull requests are welcome. For major changes, please open an issue first.
+> [!IMPORTANT]
+> Use a **Gmail App Password** for `EMAIL_HOST_PASSWORD` — not your regular login password. [Generate one here](https://myaccount.google.com/apppasswords).
 
----
-
-## 👨‍💻 Author
-
-**Aditya Kumar**
-- LinkedIn: [your-linkedin-url]
-- GitHub: [your-github-url]
-- Email: adityachy0077@gmail.com
+> [!NOTE]
+> Database defaults to **SQLite** for development. Set `DATABASE_URL` in `.env` for PostgreSQL in production.
 
 ---
 
-## 📄 License
+<div align="center">
 
-This project is open source and available under the [MIT License](LICENSE).
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:f97316,50:ec4899,100:8b5cf6&height=120&section=footer" width="100%"/>
+
+**Made with ❤️ by [Aditya Kumar](https://github.com/adityakr09)**
+
+</div>
