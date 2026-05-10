@@ -18,7 +18,7 @@
 
 <br/>
 
-**[🚀 Live Demo](https://your-link-here.com)** &nbsp;·&nbsp; **[📝 Report Bug](https://github.com/YOUR_USERNAME/foodzone-django/issues)** &nbsp;·&nbsp; **[💡 Request Feature](https://github.com/YOUR_USERNAME/foodzone-django/issues)**
+**[🚀 Live Demo]()** &nbsp;·&nbsp; **[📝 Report Bug](https://github.com/YOUR_USERNAME/foodzone-django/issues)** &nbsp;·&nbsp; **[💡 Request Feature](https://github.com/YOUR_USERNAME/foodzone-django/issues)**
 
 </div>
 
