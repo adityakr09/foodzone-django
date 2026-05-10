@@ -30,11 +30,6 @@
 
 > Built as a full-stack project with real-world features like reCAPTCHA, UUID order IDs, vendor panel, Docker support, and SMTP email invoices.
 
----
-
-## 📸 Screenshots
-
-> Add screenshots of your Home, Food Detail, Cart, and Order Success pages here
 
 ---
 
